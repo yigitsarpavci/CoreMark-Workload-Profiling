@@ -89,18 +89,20 @@ The automated test harness ([`scripts/run_benchmarks.py`](scripts/run_benchmarks
 
 ### Graphical Performance Scaling
 
-```text
-Throughput (Iterations/Second)
-  36000 ┤                                                    ╭──────────╮ 35,376 (-O3)
-  34000 ┤        ╭──────────╮  ╭──────────╮  ╭──────────╮   │          │
-  32000 ┤        │  34,184  │  │  34,037  │  │  34,656  │   │          │
-  24000 ┤        │   (-O1)  │  │   (-O2)  │  │ (-march) │   │          │
-  16000 ┤        │          │  │          │  │          │   │          │
-   8000 ┤ ╭────╮ │          │  │          │  │          │   │          │
-        │ 8,475│ │          │  │          │  │          │   │          │
-      0 ┴─┴────┴─┴──────────┴──┴──────────┴──┴──────────┴───┴──────────┴────
-           -O0        -O1          -O2       -march=native      -O3
-```
+<p align="center">
+  <img src="assets/performance_scaling.png" alt="CoreMark Performance Scaling across Compiler Optimizations" width="100%">
+</p>
+
+| Configuration | Compiler Flags | Iterations / Sec | Normalized Output | Speedup vs -O0 |
+| :--- | :--- | :---: | :--- | :---: |
+| **`-O0`** | `-O0` *(Baseline)* | 8,474.61 | `████▌` (24.0%) | 1.00× |
+| **Default** | *Base* (`-O2` in `PORT_CFLAGS`) | 33,640.41 | `██████████████████` (95.1%) | 3.97× |
+| **`-O2`** | `XCFLAGS="-O2"` | 34,037.43 | `██████████████████▎` (96.2%) | 4.02× |
+| **`-O1`** | `XCFLAGS="-O1"` | 34,183.66 | `██████████████████▍` (96.6%) | 4.03× |
+| **`-march=native`** | `XCFLAGS="-march=native"` | 34,655.81 | `██████████████████▋` (98.0%) | 4.09× |
+| **`-Ofast`** | `XCFLAGS="-Ofast"` | 34,957.08 | `██████████████████▊` (98.8%) | 4.12× |
+| **`-O3 -march=native`** | `XCFLAGS="-O3 -march=native"` | 35,169.57 | `██████████████████▉` (99.4%) | 4.15× |
+| **`-O3`** | `XCFLAGS="-O3"` *(Peak Throughput)* | **35,376.00** | `████████████████████` (100.0%) | **4.17×** |
 
 ---
 
