@@ -1,0 +1,38 @@
+# Build & executable artifacts
+*.exe
+*.o
+*.bin
+*.out
+*.log
+run1.log
+run2.log
+
+# CoreMark temporary files
+coremark/*.exe
+coremark/*.log
+
+# LaTeX temporary files
+report/*.aux
+report/*.log
+report/*.out
+report/*.synctex.gz
+report/*.toc
+report/*.fls
+report/*.fdb_latexmk
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# macOS files
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Editor temporary files
+*~
+*.swp
+.vscode/
