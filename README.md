@@ -132,6 +132,16 @@ CoreMark Execution Suite
     └── Validates run correctness (CRC verification) and evaluates bitwise shift/XOR operations.
 ```
 
+<details>
+<summary><b>Click to expand KCachegrind Workload Profiling & Execution Balance Maps</b></summary>
+<br>
+<p align="center">
+  <img src="coremark/docs/coremark_profile_o0_joined.png" alt="KCachegrind Call Tree Map and Instruction Fetch Analysis" width="90%">
+  <br><br>
+  <img src="coremark/docs/balance_O0_joined.png" alt="CoreMark Workload Balance Map" width="90%">
+</p>
+</details>
+
 ---
 
 ## Target RISC-V ISA Extensions Analysis
